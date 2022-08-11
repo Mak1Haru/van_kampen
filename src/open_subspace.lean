@@ -343,8 +343,8 @@ def top_subspace_incl {X : Type*} [top_X : topological_space X] {A : top_subspac
         set.inter_subset_right,
         set.preimage_inter,
         and_self], rw ←set.preimage_inter, rw set.image_preimage_eq_of_subset, 
-        intro x, intro hx, cases hx, fconstructor, finish,
-        assumption, rw range_incl, sorry{finish},
+        intro x, intro hx, cases hx, fconstructor, exact hx_left.1,
+        assumption, rw range_incl, refine set.inter_subset_right sX A.carrier,
     },
   end}
 
